@@ -1,0 +1,27 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Unidade Federativa de </ui:define>
+  <ui:define name="corpo">
+    <h:form id="frmUnidadeFederativa">
+        <p:fieldset legend="Unidade Federativa" toggleable="true">
+            <p:messages id="messages" />
+            <h:panelGrid columns="2" style="font-family: Verdana, Arial; font-weight: bold;">
+                <h:outputLabel id="lbNome" value="*Nome::" style="float: right;"/>
+                <p:inputText id="nome" size="60" value="#{unidadeFederativaService.unidadeFederativa.nome}" required="true" requiredMessage="Campo [Nome] é obrigatório." />
+                
+                 <h:outputLabel id="lbSigla" value="*Sigla::"  style="float: right;"/>
+                <p:inputText id="sigla" size="60" value="#{unidadeFederativaService.unidadeFederativa.sigla}" required="true" requiredMessage="Campo [Sigla] é obrigatório." />
+        
+                      
+                <p:commandButton value="Adicionar" action="#{unidadeFederativaService.save()}"  update="frmUnidadeFederativa, messages" />
+            </h:panelGrid>            
+           
+        </p:fieldset>
+    </h:form>
+    </ui:define>
+</ui:composition>

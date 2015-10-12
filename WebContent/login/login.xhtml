@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<h:head>
+	<h:outputStylesheet library="css" name="login.css" />
+</h:head>
+<h:body>
+
+	<h:form id="formLogin" enctype="multipart/form-data">
+		<p:growl autoUpdate="true" id="messages" />
+
+		<p:panelGrid styleClass="semBorda" columns="2">
+
+			<h:outputText value="Email: " />
+			<p:inputText value="#{usuarioMB.email}" styleClass="lowercase" size="35" required="true" requiredMessage="O Email é obrigatório" />
+
+			<h:outputText value="Senha: " />
+			<p:password value="#{usuarioMB.senha}" size="35" required="true" requiredMessage="A Senha é obrigatória" />
+
+		</p:panelGrid>
+
+		<p:panelGrid columns="2" styleClass="semBorda">
+			<p:commandButton icon="ui-icon-unlocked" value="Entrar"	action="#{usuarioMB.doLogin}" />
+			<p:commandButton icon="ui-icon-mail-closed" value="Recuperar Senha"	action="#{usuarioMB.doLogin}" />
+		</p:panelGrid>
+
+	</h:form>
+</h:body>
+</html>
